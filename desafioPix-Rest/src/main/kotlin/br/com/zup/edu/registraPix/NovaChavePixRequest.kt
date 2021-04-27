@@ -3,16 +3,19 @@ package br.com.zup.edu.registraPix
 import br.com.zup.RegistraChavePixRequest
 import br.com.zup.TipoChaveEnum
 import br.com.zup.TipoConta
+import br.com.zup.edu.shared.validations.ValidPixKey
 import io.micronaut.core.annotation.Introspected
 import io.micronaut.validation.validator.constraints.EmailValidator
 import java.util.*
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.Size
 
 
 @Introspected
 class NovaChavePixRequest(
-    val tipoConta: TipoContaRequest,
-    val chave: String?,
-    val tipoChave: TipoChaveRequest
+    @field:NotBlank val tipoConta: TipoContaRequest,
+    @field:NotBlank @Size(max = 77)val chave: String?,
+    @field:NotBlank @ValidPixKey val tipoChave: TipoChaveRequest
 ) {
     fun toModelGrpc(clientId: UUID): RegistraChavePixRequest?{
         return RegistraChavePixRequest.newBuilder()
