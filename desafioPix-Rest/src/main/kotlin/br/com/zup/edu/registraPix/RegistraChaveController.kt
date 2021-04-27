@@ -28,7 +28,7 @@ class RegistraChaveController(private val registraChavePixClient: RegistraChaveP
 
         val grpcResponse = registraChavePixClient.send(request.toModelGrpc(clienteId))
 
-        return io.micronaut.http.HttpResponse.created(location(clienteId, grpcResponse.pixId))
+        return HttpResponse.created(location(clienteId, grpcResponse.pixId))
     }
 
 }
