@@ -25,7 +25,6 @@ class RegistraChaveController(private val registraChavePixClient: RegistraChaveP
 
         LOGGER.info("[$clienteId] criando uma nova chave pix com $request")
 
-
         val grpcResponse = registraChavePixClient.send(request.toModelGrpc(clienteId))
 
         return HttpResponse.created(location(clienteId, grpcResponse.pixId))

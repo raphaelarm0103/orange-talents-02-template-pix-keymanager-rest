@@ -1,4 +1,4 @@
-package br.com.zup.edu
+package br.com.zup.edu.shared
 
 import br.com.zup.CarregaChavePixServiceGrpc
 import br.com.zup.ListaChavePixServiceGrpc
